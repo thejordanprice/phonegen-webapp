@@ -1,4 +1,3 @@
-/* style.css */
 body {
   background-color: #f4f4f4;
 }
@@ -21,4 +20,15 @@ body {
   margin-top: 20px;
   padding: 10px 0;
   background-color: #f8f9fa;
+}
+.loading-indicator {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+  border-width: 0.25em;
 }
