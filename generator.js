@@ -1,15 +1,17 @@
 async function generatePhoneNumbers(prefixes) {
   const loadingIndicator = document.getElementById('loadingIndicator');
   loadingIndicator.style.display = 'block';
+
+  const phoneNumbers = [];
+  for (const prefix of prefixes) {
+    for (let i = 0; i < 10000; i++) {
+      const suffix = i.toString().padStart(4, '0');
+      const phoneNumber = `${prefix}${suffix}`;
+      phoneNumbers.push(phoneNumber);
+    }
+  }
+
   return new Promise(resolve => {
-    const phoneNumbers = [];
-    prefixes.forEach(async prefix => {
-      for (let i = 0; i < 10000; i++) {
-        const suffix = i.toString().padStart(4, '0');
-        const phoneNumber = `${prefix}${suffix}`;
-        phoneNumbers.push(phoneNumber);
-      }
-    });
     setTimeout(() => {
       loadingIndicator.style.display = 'none';
       resolve(phoneNumbers);
