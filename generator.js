@@ -1,5 +1,6 @@
-// generator.js
 async function generatePhoneNumbers(prefixes) {
+  const loadingIndicator = document.getElementById('loadingIndicator');
+  loadingIndicator.style.display = 'block';
   return new Promise(resolve => {
     const phoneNumbers = [];
     prefixes.forEach(async prefix => {
@@ -9,7 +10,10 @@ async function generatePhoneNumbers(prefixes) {
         phoneNumbers.push(phoneNumber);
       }
     });
-    resolve(phoneNumbers);
+    setTimeout(() => {
+      loadingIndicator.style.display = 'none';
+      resolve(phoneNumbers);
+    }, 1000);
   });
 }
 
